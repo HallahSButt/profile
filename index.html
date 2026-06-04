@@ -1,1 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hallah Shahid Butt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --paper:#fbfaf6;
+    --ink:#1c1a17;
+    --soft:#5d564c;
+    --faint:#8c8478;
+    --line:#ddd6c9;
+    --accent:#9a3b25;
+    --accent-soft:#c9683f;
+    --display:'Fraunces',serif;
+    --sans:'Inter Tight',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.65;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:var(--paper)}
+  a{color:var(--accent);text-decoration:none;transition:color .2s}
+  a:hover{color:var(--accent-soft)}
 
+  .wrap{max-width:820px;margin:0 auto;padding:0 32px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(244,241,234,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .navinner{max-width:820px;margin:0 auto;padding:16px 32px;display:flex;justify-content:space-between;align-items:center}
+  .navinner .mark{font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:-.01em}
+  .navlinks{display:flex;gap:26px;font-size:.82rem;letter-spacing:.03em;text-transform:uppercase}
+  .navlinks a{color:var(--soft)}
+  .navlinks a:hover{color:var(--accent)}
+
+  /* hero */
+  header{padding:120px 0 80px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
+  h1{font-family:var(--display);font-weight:300;font-size:clamp(3rem,9vw,5.5rem);line-height:.98;letter-spacing:-.03em;color:var(--ink)}
+  h1 em{font-style:italic;font-weight:400}
+  .role{margin-top:26px;font-size:1.15rem;color:var(--soft);font-weight:400;max-width:560px}
+  .tagline{margin-top:34px;font-family:var(--display);font-style:italic;font-weight:400;font-size:1.4rem;line-height:1.5;color:var(--ink);max-width:600px}
+  .meta{margin-top:42px;display:flex;flex-wrap:wrap;gap:8px 34px;font-size:.85rem;letter-spacing:.02em;color:var(--faint)}
+  .meta span b{color:var(--ink);font-weight:500}
+
+  /* section */
+  section{padding:78px 0;border-bottom:1px solid var(--line)}
+  .sechead{display:flex;align-items:baseline;gap:18px;margin-bottom:50px}
+  .sechead .num{font-family:var(--display);font-size:.9rem;color:var(--accent);font-weight:500}
+  .sechead h2{font-family:var(--display);font-weight:400;font-size:1.9rem;letter-spacing:-.02em}
+  .sechead .rule{flex:1;height:1px;background:var(--line);align-self:center}
+
+  .lead{font-family:var(--display);font-weight:300;font-size:1.5rem;line-height:1.55;letter-spacing:-.01em;max-width:680px}
+  .lead .hl{color:var(--accent);font-style:italic}
+
+  /* entries */
+  .entry{display:grid;grid-template-columns:130px 1fr;gap:0 30px;padding:30px 0;border-top:1px solid var(--line)}
+  .entry:first-of-type{border-top:none;padding-top:0}
+  .entry .yr{font-size:.82rem;letter-spacing:.04em;color:var(--faint);padding-top:5px}
+  .entry .yr .live{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:7px;vertical-align:middle}
+  .entry h3{font-family:var(--display);font-weight:500;font-size:1.25rem;letter-spacing:-.01em}
+  .entry .org{color:var(--accent);font-size:1rem;margin-top:2px}
+  .entry .loc{font-size:.8rem;color:var(--faint);margin-top:3px;letter-spacing:.02em}
+  .entry ul{margin-top:14px;list-style:none}
+  .entry ul li{position:relative;padding-left:20px;margin-bottom:8px;color:var(--soft);font-size:.95rem;line-height:1.55}
+  .entry ul li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:1px;background:var(--accent-soft)}
+
+  /* skills */
+  .skillrow{display:grid;grid-template-columns:130px 1fr;gap:0 30px;padding:22px 0;border-top:1px solid var(--line)}
+  .skillrow:first-of-type{border-top:none;padding-top:0}
+  .skillrow .lbl{font-size:.82rem;letter-spacing:.04em;color:var(--faint);padding-top:4px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:.85rem;padding:5px 13px;border:1px solid var(--line);border-radius:100px;background:var(--paper);color:var(--ink);transition:all .2s}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* pubs */
+  .pub{padding:24px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:130px 1fr;gap:0 30px}
+  .pub:first-of-type{border-top:none;padding-top:0}
+  .pub .yr{font-size:.82rem;color:var(--faint);padding-top:4px}
+  .pub .ptitle{font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.4;letter-spacing:-.01em}
+  .pub .venue{font-size:.9rem;color:var(--soft);margin-top:6px;font-style:italic}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+  .ccard .clbl{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .ccard a,.ccard span{font-family:var(--display);font-size:1.2rem;font-weight:400}
+  .ccard span{color:var(--ink)}
+
+  footer{padding:50px 0 70px;text-align:center;font-size:.82rem;color:var(--faint);letter-spacing:.03em}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:640px){
+    .navlinks{display:none}
+    .entry,.skillrow,.pub{grid-template-columns:1fr;gap:6px}
+    .entry .yr,.skillrow .lbl,.pub .yr{padding-top:0;margin-bottom:4px}
+    header{padding:80px 0 60px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navinner">
+    <div class="mark">Hallah Shahid Butt</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">ML &amp; Data Engineer · PhD Researcher</div>
+    <h1>Hallah Shahid Butt</h1>
+    <p class="role">I build data systems and explainable reinforcement learning — bridging production-grade engineering and applied research.</p>
+    <p class="tagline">Reliable in production, interpretable in research.</p>
+    <div class="meta">
+      <span><b>Karlsruhe</b>, Germany</span>
+      <span>PhD · <b>Karlsruhe Institute of Technology</b></span>
+      <span><b>7+ years</b> in software &amp; data engineering</span>
+    </div>
+  </header>
+
+  <section id="about" class="reveal">
+    <div class="sechead"><span class="num">01</span><h2>About</h2><span class="rule"></span></div>
+    <p class="lead">
+      I'm a machine learning and data engineer pursuing a PhD at KIT, focused on
+      <span class="hl">explainable reinforcement learning</span> for building energy management.
+      My work spans large-scale production pipelines — Spark, Databricks, Kubernetes, NiFi —
+      and applied research, including <span class="hl">FAIR benchmark dataset design</span> for distributed energy systems.
+    </p>
+  </section>
+
+  <section id="work" class="reveal">
+    <div class="sechead"><span class="num">02</span><h2>Experience</h2><span class="rule"></span></div>
+
+    <div class="entry">
+      <div class="yr"><span class="live"></span>2023 — Now</div>
+      <div>
+        <h3>PhD Researcher — Machine Learning / RL</h3>
+        <div class="org">Karlsruhe Institute of Technology</div>
+        <div class="loc">Karlsruhe, Germany</div>
+        <ul>
+          <li>Research on explainable reinforcement learning for optimizing electricity costs in building energy management.</li>
+          <li>Designing FAIR-compliant benchmark datasets for distributed energy systems (GRIDMARK / Helmholtz UNLOCK).</li>
+          <li>Building reproducible data pipelines from collection through metadata enrichment, processing, publication and benchmark curation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="yr">2021 — 2023</div>
+      <div>
+        <h3>Senior Software Engineer</h3>
+        <div class="org">S&amp;P Global</div>
+        <div class="loc">Islamabad, Pakistan</div>
+        <ul>
+          <li>Designed solutions from business requirements and supported cross-platform teams.</li>
+          <li>Built NiFi pipelines triggering Spark jobs on Databricks clusters.</li>
+          <li>Led a PoC replacing NTLM with OAuth2 authentication within the NiFi pipeline for improved efficiency.</li>
+          <li>Containerized applications and enabled CI/CD with Kubernetes orchestrating Docker deployments.</li>
+          <li>Migrated legacy on-prem Hadoop workloads to Databricks, cutting a 6–7 day process to 2 days.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="yr">2020 — 2021</div>
+      <div>
+        <h3>Software Engineer</h3>
+        <div class="org">Synergy-IT</div>
+        <div class="loc">Islamabad, Pakistan · Mentor Denmark (DK/NO)</div>
+        <ul>
+          <li>Modernized the UI from legacy MVC forms to Angular with Bootstrap.</li>
+          <li>Built REST back-end APIs on .NET Core with Swagger-documented interfaces.</li>
+          <li>Integrated a Learning Bank system giving mentors access to materials before sessions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="yr">2019 — 2020</div>
+      <div>
+        <h3>Software Engineer</h3>
+        <div class="org">Elixir Technologies</div>
+        <div class="loc">Islamabad, Pakistan</div>
+        <ul>
+          <li>Developed a platform for correspondence between clients and customer-care providers.</li>
+          <li>Built the front-end with Angular 8 and Angular Material.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="yr">2018 — 2019</div>
+      <div>
+        <h3>Software Engineer</h3>
+        <div class="org">CareCloud (MTBC)</div>
+        <div class="loc">Rawalpindi, Pakistan · TalkEHR</div>
+        <ul>
+          <li>Developed Angular front-end and .NET Core REST back-end for a healthcare product.</li>
+          <li>Built patient-vitals modules with daily/monthly/yearly reporting, exportable to Excel and PDF.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="reveal">
+    <div class="sechead"><span class="num">03</span><h2>Research &amp; Publications</h2><span class="rule"></span></div>
+
+    <div class="pub">
+      <div class="yr">2024</div>
+      <div>
+        <div class="ptitle">Explainable Reinforcement Learning for Optimizing Electricity Costs in Building Energy Management</div>
+        <div class="venue">Int'l Conference on Energy Transition in the Mediterranean Area (SyNERGY MED)</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="yr">2024</div>
+      <div>
+        <div class="ptitle">Why Reinforcement Learning in Energy Systems Needs Explanations</div>
+        <div class="venue">ExEn '24 · Workshop on Explainability Engineering</div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="yr">2019</div>
+      <div>
+        <div class="ptitle">Mobile Cloud Gaming and Today's World</div>
+        <div class="venue">Published work</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="sechead"><span class="num">04</span><h2>Skills</h2><span class="rule"></span></div>
+
+    <div class="skillrow">
+      <div class="lbl">Data &amp; ML</div>
+      <div class="chips">
+        <span class="chip">Spark</span><span class="chip">Databricks</span><span class="chip">NiFi</span>
+        <span class="chip">Kubernetes</span><span class="chip">Docker</span><span class="chip">CI/CD</span>
+        <span class="chip">REST APIs</span><span class="chip">PubSub</span>
+      </div>
+    </div>
+    <div class="skillrow">
+      <div class="lbl">Languages</div>
+      <div class="chips">
+        <span class="chip">Python</span><span class="chip">Scala</span><span class="chip">SQL</span>
+        <span class="chip">Java</span><span class="chip">C++</span><span class="chip">C#</span>
+        <span class="chip">JavaScript</span><span class="chip">PHP</span>
+      </div>
+    </div>
+    <div class="skillrow">
+      <div class="lbl">ML / Research</div>
+      <div class="chips">
+        <span class="chip">Reinforcement Learning</span><span class="chip">Explainable AI</span>
+        <span class="chip">Offline RL</span><span class="chip">Imitation Learning</span>
+        <span class="chip">Benchmark Design</span><span class="chip">FAIR Data</span>
+      </div>
+    </div>
+    <div class="skillrow">
+      <div class="lbl">Web &amp; Tooling</div>
+      <div class="chips">
+        <span class="chip">Angular</span><span class="chip">Bootstrap</span><span class="chip">.NET Core</span>
+        <span class="chip">Git</span><span class="chip">Swagger</span>
+      </div>
+    </div>
+    <div class="skillrow">
+      <div class="lbl">Spoken</div>
+      <div class="chips">
+        <span class="chip">Urdu — native</span><span class="chip">English — C1</span><span class="chip">German — A2/B1</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="sechead"><span class="num">05</span><h2>Contact</h2><span class="rule"></span></div>
+    <div class="contact-grid">
+      <div class="ccard">
+        <div class="clbl">Email</div>
+        <a href="mailto:hsbutt.germany@gmail.com">hsbutt.germany@gmail.com</a>
+      </div>
+      <div class="ccard">
+        <div class="clbl">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/hallah-shahid-butt" target="_blank" rel="noopener">hallah-shahid-butt</a>
+      </div>
+      <div class="ccard">
+        <div class="clbl">Phone</div>
+        <span>+49 176 37053350</span>
+      </div>
+      <div class="ccard">
+        <div class="clbl">Location</div>
+        <span>Karlsruhe, Germany</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © <span id="yr"></span> Hallah Shahid Butt
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const obs = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
